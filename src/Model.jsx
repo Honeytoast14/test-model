@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unknown-property */
 import { Canvas } from '@react-three/fiber'
 import { useAspect, useVideoTexture} from '@react-three/drei'
+import ttw from 'touchTheWood.mp4'
 
 export default function Model() {
   return (
@@ -16,7 +17,7 @@ function Scene() {
   return (
     <mesh scale={size}>
       <planeGeometry />
-        <VideoMaterial url="touchTheWood.mp4" />
+        <VideoMaterial url={ttw} />
     </mesh>
   )
 }
