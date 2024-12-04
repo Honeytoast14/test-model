@@ -23,6 +23,6 @@ function Scene() {
 }
 
 function VideoMaterial({ url }) {
-  const texture = useVideoTexture(url)
+  const texture = useVideoTexture(url,{muted:true})
   return <meshBasicMaterial map={texture} toneMapped={false} />
 }
