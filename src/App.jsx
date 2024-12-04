@@ -1,8 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
-import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { useAspect, useVideoTexture, useTexture } from '@react-three/drei'
+import { useAspect, useVideoTexture} from '@react-three/drei'
 
 export default function App() {
   return (
@@ -17,19 +16,12 @@ function Scene() {
   return (
     <mesh scale={size}>
       <planeGeometry />
-      {/* <Suspense fallback={<FallbackMaterial url="10.jpg" />}> */}
         <VideoMaterial url="/touchTheWood.mp4" />
-      {/* </Suspense> */}
     </mesh>
   )
 }
 
 function VideoMaterial({ url }) {
-  const texture = useVideoTexture(url,{muted:true})
-  return <meshBasicMaterial map={texture} toneMapped={false} />
-}
-
-function FallbackMaterial({ url }) {
-  const texture = useTexture(url)
+  const texture = useVideoTexture(url,{muted:true,playsInline:true,})
   return <meshBasicMaterial map={texture} toneMapped={false} />
 }
